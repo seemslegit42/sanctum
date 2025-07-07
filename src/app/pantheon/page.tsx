@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { GlassCard } from "@/components/glass-card";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShoppingCart, Gem } from "lucide-react";
 import { BeepIcon, LoomIcon, AegisIcon, KlepsydraIcon, MicroAppsIcon, PantheonIcon } from "@/components/icons";
 
 const components = [
@@ -30,6 +30,16 @@ const components = [
     name: "KLEPSYDRA Engine",
     description: "The economic heart. The abacus of fates. It governs the flow of resources and transforms work into a compelling, strategic endeavor.",
   },
+  {
+    icon: <ShoppingCart className="h-16 w-16 text-accent" />,
+    name: "ΛΞVON Armory Marketplace",
+    description: "The sanctified repository for Micro-Apps and Chaos Cards.",
+  },
+  {
+    icon: <Gem className="h-16 w-16 text-accent" />,
+    name: "Obelisk Marketplace",
+    description: "The vault of manifested sovereignty for real-world asset transmutation.",
+  }
 ];
 
 export default function PantheonPage() {
