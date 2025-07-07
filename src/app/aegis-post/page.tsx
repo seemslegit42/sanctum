@@ -7,11 +7,21 @@ import { ShieldCheck, Bot, DatabaseZap, Lock } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 import dynamic from 'next/dynamic';
+import type { Metadata } from 'next';
 
 const AegisSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.AegisSigil), {
   ssr: false,
   loading: () => <div className="h-48 w-48" />
 });
+
+export const metadata: Metadata = {
+    title: "The Aegis Post: AI-Powered Cybersecurity",
+    description: "Discover Aegis, the brainless cybersecurity layer of ΛΞVON OS. Learn about our multi-phased threat detection, agent governance, and zero-trust architecture for absolute peace of mind.",
+    openGraph: {
+        title: "The Aegis Post: AI-Powered Cybersecurity",
+        description: "Discover Aegis, the brainless cybersecurity layer of ΛΞVON OS. Learn about our multi-phased threat detection, agent governance, and zero-trust architecture for absolute peace of mind.",
+    }
+};
 
 
 const features = [

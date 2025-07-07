@@ -98,7 +98,7 @@ export default function Home() {
               There is no going back after this step. Your Initiation begins within ΛΞVON OS.
             </p>
             <Button size="lg" className="font-headline text-lg" asChild>
-              <Link href="#">Commence The Rite of Invocation</Link>
+              <Link href="/docs#genesis-protocol">Commence The Rite of Invocation</Link>
             </Button>
           </GlassCard>
         </div>

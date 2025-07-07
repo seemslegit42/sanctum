@@ -8,6 +8,7 @@ import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 import dynamic from 'next/dynamic';
+import type { Metadata } from 'next';
 
 const BeepSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.BeepSigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
 const LoomSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.LoomSigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
@@ -17,6 +18,15 @@ const MicroAppsSigil = dynamic(() => import('@/components/AethericSigils').then(
 const PantheonSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.PantheonSigil), { ssr: false, loading: () => <div className="h-48 w-48" /> });
 const ArmorySigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.ArmorySigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
 const ObeliskMarketplaceSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.ObeliskMarketplaceSigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
+
+export const metadata: Metadata = {
+    title: "The Pantheon: Core Components of ΛΞVON OS",
+    description: "Explore the Pantheon, the core instruments of the ΛΞVON OS: BEEP, Micro-Apps, Loom Studio, Aegis, and the KLEPSYDRA Engine. Discover the unified machine for digital sovereignty.",
+    openGraph: {
+        title: "The Pantheon: Core Components of ΛΞVON OS",
+        description: "Explore the Pantheon, the core instruments of the ΛΞVON OS: BEEP, Micro-Apps, Loom Studio, Aegis, and the KLEPSYDRA Engine. Discover the unified machine for digital sovereignty.",
+    }
+};
 
 
 const components = [
@@ -82,7 +92,7 @@ export default function PantheonPage() {
               </div>
               <h3 className="font-headline text-2xl font-semibold text-center mb-3 text-glow">{component.name}</h3>
               <p className="text-foreground/70 text-center flex-grow mb-6">{component.description}</p>
-              <Link href="/docs" className="inline-flex items-center justify-center text-accent font-bold group mt-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
+              <Link href={`/docs#${component.name.toLowerCase().replace(/ /g, '-')}`} className="inline-flex items-center justify-center text-accent font-bold group mt-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
                 <span className="transition-all group-hover:text-glow">Consult the Scriptorium</span>
                 <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>

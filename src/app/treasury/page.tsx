@@ -2,6 +2,7 @@
 "use client"
 import * as React from "react"
 import { Bar, BarChart, CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
+import type { Metadata } from 'next';
 import {
   ChartContainer,
   ChartTooltip,
@@ -16,6 +17,15 @@ import { Gem, Landmark, BrainCircuit, CreditCard, TrendingUp, Target, ShieldChec
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+    title: "The Treasury: An Invitation to Forge the Post-SaaS Economy",
+    description: "This is not an investment memo. This is a declaration of economic conquest. Discover the investment thesis for ΛΞVON OS and our path to market dominance.",
+    openGraph: {
+        title: "The Treasury: An Invitation to Forge the Post-SaaS Economy",
+        description: "This is not an investment memo. This is a declaration of economic conquest. Discover the investment thesis for ΛΞVON OS and our path to market dominance.",
+    }
+};
 
 const marketData = [
   { market: "SMB Software", TAM: 186.97, SAM: 46.74 },

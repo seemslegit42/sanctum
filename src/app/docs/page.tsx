@@ -1,6 +1,8 @@
+
 "use client"
 import * as React from "react";
 import Link from "next/link";
+import type { Metadata } from 'next';
 import {
   SidebarProvider,
   Sidebar,
@@ -19,15 +21,24 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Book, Code, Shield, Atom, Workflow, BrainCircuit, Rocket, Users } from "lucide-react";
 import { PageHeader } from "@/components/page-header";
 
+export const metadata: Metadata = {
+    title: "The Scriptorium: ΛΞVON OS Documentation",
+    description: "The Scriptorium is the living documentation for ΛΞVON OS. Find technical specifications, architectural diagrams, and operational protocols to master the system.",
+    openGraph: {
+        title: "The Scriptorium: ΛΞVON OS Documentation",
+        description: "The Scriptorium is the living documentation for ΛΞVON OS. Find technical specifications, architectural diagrams, and operational protocols to master the system.",
+    }
+};
+
 const docSections = [
-    { title: "Architect's Genesis Protocol", icon: <Code/>, subItems: ["Environment Setup", "Database Seeding", "Running Services", "App Launch"] },
-    { title: "The Core Doctrine", icon: <Book/>, subItems: ["Agentic Mythware™", "Sovereignty-as-a-Service™", "The Silence of True Automation", "Ancient Roman Glass Aesthetic"] },
-    { title: "Nexus Architecture", icon: <Workflow/>, subItems: ["System Overview", "Microservices", "Tech Stack"] },
-    { title: "The Agentic Pantheon", icon: <BrainCircuit/>, subItems: ["BEEP's Triune Voice", "Swarm Orchestration", "Tool Registry", "Agent Profiles"] },
-    { title: "The Loom of Fates", icon: <Users/>, subItems: ["Loom Studio", "KLEPSYDRA Engine", "ΞCredits", "Folly Instruments", "Obelisk Marketplace"] },
-    { title: "The Aegis Protocols", icon: <Shield/>, subItems: ["Threat Detection", "Agent Governance", "Data Integrity", "Zero-Trust Architecture"] },
-    { title: "The Micro-App Canvas", icon: <Atom/>, subItems: ["SDK", "Canvas UX Laws", "Mobile UX Guidelines", "Verdigris Interface Protocol™"] },
-    { title: "Operational Scrolls", icon: <Rocket/>, subItems: ["Deployment Runbook", "Monitoring", "Debugging", "Testing"] },
+    { id: "genesis-protocol", title: "Architect's Genesis Protocol", icon: <Code/>, subItems: ["Environment Setup", "Database Seeding", "Running Services", "App Launch"] },
+    { id: "core-doctrine", title: "The Core Doctrine", icon: <Book/>, subItems: ["Agentic Mythware™", "Sovereignty-as-a-Service™", "The Silence of True Automation", "Ancient Roman Glass Aesthetic"] },
+    { id: "nexus-architecture", title: "Nexus Architecture", icon: <Workflow/>, subItems: ["System Overview", "Microservices", "Tech Stack"] },
+    { id: "agentic-pantheon", title: "The Agentic Pantheon", icon: <BrainCircuit/>, subItems: ["BEEP's Triune Voice", "Swarm Orchestration", "Tool Registry", "Agent Profiles"] },
+    { id: "loom-of-fates", title: "The Loom of Fates", icon: <Users/>, subItems: ["Loom Studio", "KLEPSYDRA Engine", "ΞCredits", "Folly Instruments", "Obelisk Marketplace"] },
+    { id: "aegis-protocols", title: "The Aegis Protocols", icon: <Shield/>, subItems: ["Threat Detection", "Agent Governance", "Data Integrity", "Zero-Trust Architecture"] },
+    { id: "micro-app-canvas", title: "The Micro-App Canvas", icon: <Atom/>, subItems: ["SDK", "Canvas UX Laws", "Mobile UX Guidelines", "Verdigris Interface Protocol™"] },
+    { id: "operational-scrolls", title: "Operational Scrolls", icon: <Rocket/>, subItems: ["Deployment Runbook", "Monitoring", "Debugging", "Testing"] },
 ];
 
 export default function DocsPage() {
@@ -50,7 +61,7 @@ export default function DocsPage() {
                                         {section.subItems?.map(sub => (
                                             <SidebarMenuSubItem key={sub}>
                                                 <SidebarMenuSubButton asChild>
-                                                    <Link href="#">{sub}</Link>
+                                                    <Link href={`#${section.id}`}>{sub}</Link>
                                                 </SidebarMenuSubButton>
                                             </SidebarMenuSubItem>
                                         ))}

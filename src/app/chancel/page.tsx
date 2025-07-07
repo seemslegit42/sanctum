@@ -8,6 +8,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "The Chancel: Doctrine of an Autonomous Age",
+    description: "Explore the Chancel, a sacred space for the radical visions and philosophical discourse fueling the age of autonomous workflows and Agentic Mythware™.",
+    openGraph: {
+        title: "The Chancel: Doctrine of an Autonomous Age",
+        description: "Explore the Chancel, a sacred space for the radical visions and philosophical discourse fueling the age of autonomous workflows and Agentic Mythware™.",
+    }
+};
 
 const articles = [
   {
@@ -16,6 +26,7 @@ const articles = [
     category: "Doctrine",
     imageUrl: "https://placehold.co/600x400.png",
     aiHint: "abstract purple technology",
+    slug: "myth-of-multitasking"
   },
   {
     title: "Sovereignty-as-a-Service™: Beyond Ownership to True Command",
@@ -23,6 +34,7 @@ const articles = [
     category: "Vision",
     imageUrl: "https://placehold.co/600x400.png",
     aiHint: "roman statue digital",
+    slug: "sovereignty-as-a-service"
   },
   {
     title: "Agentic Mythware™ vs. Soulless Software",
@@ -30,6 +42,7 @@ const articles = [
     category: "Technology",
     imageUrl: "https://placehold.co/600x400.png",
     aiHint: "glowing orb forest",
+    slug: "agentic-mythware"
   },
   {
     title: "The Aegis Imperative: Brainless Cybersecurity",
@@ -37,6 +50,7 @@ const articles = [
     category: "Security",
     imageUrl: "https://placehold.co/600x400.png",
     aiHint: "shield light abstract",
+    slug: "aegis-imperative"
   },
 ];
 
@@ -58,13 +72,19 @@ export default function ChancelPage() {
           >
             <GlassCard className="flex flex-col overflow-hidden p-0">
               <div className="relative aspect-video">
-                  <Image src={article.imageUrl} alt={article.title} fill className="object-cover" data-ai-hint={article.aiHint} />
+                  <Image 
+                    src={article.imageUrl} 
+                    alt={`Visually represents the concept of: ${article.title}`} 
+                    fill 
+                    className="object-cover" 
+                    data-ai-hint={article.aiHint} 
+                  />
               </div>
               <div className="p-8 flex flex-col flex-grow">
                 <p className="font-headline text-accent text-sm mb-1">{article.category}</p>
                 <h3 className="font-headline text-2xl font-semibold mb-3 flex-grow">{article.title}</h3>
                 <p className="text-foreground/70 mb-6">{article.excerpt}</p>
-                <Link href="#" className="inline-flex items-center text-accent font-bold group mt-auto self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
+                <Link href={`/docs#${article.slug}`} className="inline-flex items-center text-accent font-bold group mt-auto self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
                   <span className="transition-all group-hover:text-glow">Read Communique</span>
                   <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
