@@ -1,6 +1,15 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { CanadianMapleLeafIcon } from '@/components/icons';
 
 export function Footer() {
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="w-full py-8 text-center text-sm text-foreground/60">
       <div className="container mx-auto px-4">
@@ -11,7 +20,7 @@ export function Footer() {
         <p className="text-xs max-w-md mx-auto">
           All physical forging (The Sovereign's Sigil) and core fintech integrations (Interac) will be Canadian, fostering domestic expertise.
         </p>
-        <p className="mt-6 font-headline">© {new Date().getFullYear()} ΛΞVON. Sovereignty is Here.</p>
+        {year && <p className="mt-6 font-headline">© {year} ΛΞVON. Sovereignty is Here.</p>}
       </div>
     </footer>
   );

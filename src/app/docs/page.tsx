@@ -15,7 +15,7 @@ import {
   SidebarMenuSubButton,
 } from "@/components/ui/sidebar"
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Book, Code, Shield, Atom, Workflow, BrainCircuit, Rocket, Microscope, Users, CircleDollarSign } from "lucide-react";
+import { Book, Code, Shield, Atom, Workflow, BrainCircuit, Rocket, Users } from "lucide-react";
 import { PageHeader } from "@/components/page-header";
 
 const docSections = [
@@ -66,7 +66,7 @@ export default function DocsPage() {
                         <SidebarTrigger />
                     </div>
                     <PageHeader 
-                        title="The Living Scroll" 
+                        title="The Scriptorium" 
                         subtitle="Where arcane knowledge becomes a weapon. You struggle with opaque systems; the Scriptorium illuminates every protocol, transforming confusion into mastery. This is the source of truth."
                     />
                     <div className="prose prose-invert max-w-none text-foreground/80 mx-auto mt-16 prose-headings:font-headline prose-headings:text-glow prose-headings:text-foreground prose-a:text-accent prose-strong:text-foreground">
