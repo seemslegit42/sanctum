@@ -40,7 +40,7 @@ export default function ChancelPage() {
     <div className="container mx-auto px-4">
       <PageHeader
         title="The Chancel"
-        subtitle="A sacred space for profound discourse. We offer radical paths forward into the Age of Autonomous Workflows for sovereign operators."
+        subtitle="Where raw thought ignites empire. The old world offers static discourse. The Chancel offers radical visions, dissecting industrial decay and forging new paths for sovereign operators."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 py-16">
         {articles.map((article) => (

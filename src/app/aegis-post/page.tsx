@@ -31,7 +31,7 @@ export default function AegisPostPage() {
     <div className="container mx-auto px-4">
       <PageHeader
         title="The Aegis Post"
-        subtitle="The bastion of digital defense. Aegis delivers 'Brainless' cybersecurity, making threats invisible. Security is not a burden; it is an extension of your will."
+        subtitle="Your bastion against the void. You are targeted by unseen threats, overwhelmed by complexity. The Aegis Post reveals how Aegis renders these threats invisible, delivering brainless cybersecurity and absolute peace of mind."
       />
 
       <section className="py-16">

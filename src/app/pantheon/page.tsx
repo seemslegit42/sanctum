@@ -47,7 +47,7 @@ export default function PantheonPage() {
     <div className="container mx-auto px-4">
       <PageHeader
         title="The Pantheon"
-        subtitle="Behold the instruments of sovereignty. The core components of the Digital Temple, unveiled. Each is a powerful ally in your quest for digital autonomy."
+        subtitle="Behold the instruments of your new domain. The old world is a maze of disparate tools. The Pantheon presents a unified vision, unveiling each instrument of sovereignty to show you the whole machine."
       />
       <div className="flex justify-center mb-16">
         <PantheonIcon className="h-48 w-48"/>

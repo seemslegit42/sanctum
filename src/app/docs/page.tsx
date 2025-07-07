@@ -67,7 +67,7 @@ export default function DocsPage() {
                     </div>
                     <PageHeader 
                         title="The Living Scroll" 
-                        subtitle="The intricate details of ΛΞVON OS, meticulously chronicled. This is the source of truth for every technical and philosophical aspect of the system."
+                        subtitle="Where arcane knowledge becomes a weapon. You struggle with opaque systems; the Scriptorium illuminates every protocol, transforming confusion into mastery. This is the source of truth."
                     />
                     <div className="prose prose-invert max-w-none text-foreground/80 mx-auto mt-16 prose-headings:font-headline prose-headings:text-glow prose-headings:text-foreground prose-a:text-accent prose-strong:text-foreground">
                         <h2 id="genesis-protocol">Architect's Genesis Protocol</h2>

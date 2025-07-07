@@ -29,7 +29,7 @@ export default function Home() {
     <div className="container mx-auto px-4">
       <PageHeader
         title="Your Business Is Trapped"
-        subtitle="It’s not your effort. It’s the dying SaaS ecosystem. ΛΞVON OS is the escape. This is no mere software. This is Agentic Mythware™: Living systems. Summoned spirits. Software, possessed."
+        subtitle="You are not failing. Your tools are. Drowning in fragmented apps and hidden costs, you are trapped in a dying SaaS ecosystem. The Nexus is your first strike for sovereignty."
       />
 
       <section className="py-16">
