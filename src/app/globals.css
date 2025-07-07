@@ -38,6 +38,17 @@
   }
 }
 
+@keyframes mic-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 hsl(var(--accent) / 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px 15px hsl(var(--accent) / 0);
+  }
+}
+
 @layer base {
   :root {
     --background: 224 71% 4%;
@@ -191,5 +202,9 @@
   }
   .animate-glow-primary {
     animation: glow-primary 4s ease-in-out infinite;
+  }
+
+  .animate-mic-pulse {
+    animation: mic-pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
   }
 }

@@ -3,10 +3,12 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, X, Microphone } from "lucide-react";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { cn } from "@/lib/utils";
 import { OrbIcon } from "@/components/icons";
+import { Button } from "./ui/button";
 
 const navLinks = [
   { href: "/", label: "The Nexus" },
@@ -20,26 +22,90 @@ const navLinks = [
 export function Navigation() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isMounted, setIsMounted] = React.useState(false);
+  const [vuiMessage, setVuiMessage] = React.useState("Say a command to navigate.");
   const pathname = usePathname();
+  const router = useRouter();
+
+  // --- Voice Navigation Logic ---
+  const commands = [
+    // Page navigation commands
+    ...navLinks.flatMap(link => ([
+      { command: `go to ${link.label.toLowerCase()}`, callback: () => router.push(link.href) },
+      { command: `navigate to ${link.label.toLowerCase()}`, callback: () => router.push(link.href) },
+      { command: `show me ${link.label.toLowerCase()}`, callback: () => router.push(link.href) },
+      { command: `${link.label.toLowerCase()}`, callback: () => router.push(link.href) },
+    ])),
+    // Menu control commands
+    { command: 'close menu', callback: () => setIsOpen(false) },
+    { command: 'close', callback: () => setIsOpen(false) },
+    { command: 'exit', callback: () => setIsOpen(false) },
+  ];
+
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    finalTranscript,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition({ commands });
+
+  // Provide feedback for unrecognized commands
+  React.useEffect(() => {
+    if (finalTranscript) {
+      // Check if any command was successfully executed by the library
+      const wasCommandRecognized = commands.some(c => finalTranscript.toLowerCase().includes(c.command as string));
+
+      if (!wasCommandRecognized) {
+        setVuiMessage(`Command not recognized: "${finalTranscript}"`);
+        const timer = setTimeout(() => {
+            if (listening) setVuiMessage("Listening...");
+            else setVuiMessage("Say a command to navigate.");
+        }, 3000);
+        return () => clearTimeout(timer);
+      }
+      resetTranscript();
+    }
+  }, [finalTranscript, resetTranscript, commands, listening]);
+
+
+  // --- Standard Component Logic ---
+  React.useEffect(() => { setIsMounted(true); }, []);
 
   React.useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  React.useEffect(() => {
+    // When route changes, close menu and stop listening
     setIsOpen(false);
   }, [pathname]);
 
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      setVuiMessage("Say a command to navigate.");
     } else {
       document.body.style.overflow = 'auto';
+      SpeechRecognition.stopListening();
+      resetTranscript();
     }
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isOpen]);
+    return () => { document.body.style.overflow = 'auto'; };
+  }, [isOpen, resetTranscript]);
+
+
+  const toggleListening = () => {
+    if (listening) {
+      SpeechRecognition.stopListening();
+    } else {
+      resetTranscript();
+      setVuiMessage("Listening...");
+      SpeechRecognition.startListening({ continuous: false });
+    }
+  };
+
+  // Update message when listening state changes
+  React.useEffect(() => {
+    if(!listening && vuiMessage === "Listening...") {
+      setVuiMessage("Say a command to navigate.");
+    }
+  },[listening, vuiMessage])
+
 
   if (!isMounted) {
     return <div className="fixed bottom-6 right-6 z-50 h-16 w-16" />;
@@ -50,7 +116,7 @@ export function Navigation() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-50 h-16 w-16 rounded-full flex items-center justify-center text-white transition-transform hover:scale-110 active:scale-90"
-        aria-label="Toggle navigation"
+        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
       >
         <OrbIcon className="absolute inset-0 h-full w-full" />
         <div className="relative h-8 w-8">
@@ -66,7 +132,7 @@ export function Navigation() {
         )}
         onClick={() => setIsOpen(false)}
       >
-        <div className="flex h-full w-full items-center justify-center">
+        <div className="flex h-full w-full items-center justify-center" onClick={e => e.stopPropagation()}>
           <nav>
             <ul className="flex flex-col items-center gap-8">
               {navLinks.map((link, i) => (
@@ -91,6 +157,36 @@ export function Navigation() {
               ))}
             </ul>
           </nav>
+
+          {/* Voice User Interface */}
+          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 w-full max-w-md text-center">
+            {browserSupportsSpeechRecognition ? (
+              <>
+                <Button
+                  onClick={toggleListening}
+                  variant="ghost"
+                  size="icon"
+                  className={cn(
+                    "rounded-full h-20 w-20 bg-secondary/20 hover:bg-secondary/40 text-accent transition-all duration-300",
+                    listening && "animate-mic-pulse text-glow"
+                  )}
+                  aria-label={listening ? "Stop listening for voice commands" : "Activate voice navigation"}
+                >
+                  <Microphone className="h-8 w-8" />
+                </Button>
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="mt-4 h-12 text-lg text-foreground/80 transition-opacity"
+                >
+                  <p>{transcript || vuiMessage}</p>
+                </div>
+              </>
+            ) : (
+              <p className="text-foreground/60">Voice navigation is not supported by your browser.</p>
+            )}
+          </div>
+
         </div>
       </div>
     </>

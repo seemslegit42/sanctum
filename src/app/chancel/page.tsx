@@ -62,7 +62,7 @@ export default function ChancelPage() {
               </div>
               <div className="p-8 flex flex-col flex-grow">
                 <p className="font-headline text-accent text-sm mb-1">{article.category}</p>
-                <h3 className="font-headline text-2xl font-bold mb-3 flex-grow">{article.title}</h3>
+                <h3 className="font-headline text-2xl font-semibold mb-3 flex-grow">{article.title}</h3>
                 <p className="text-foreground/70 mb-6">{article.excerpt}</p>
                 <Link href="#" className="inline-flex items-center text-accent font-bold group mt-auto self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
                   <span className="transition-all group-hover:text-glow">Read Communique</span>

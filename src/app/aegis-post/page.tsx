@@ -62,7 +62,7 @@ export default function AegisPostPage() {
                 <div className="flex items-start gap-4">
                   <div className="mt-1">{feature.icon}</div>
                   <div>
-                    <h3 className="font-headline text-2xl font-bold mb-2">{feature.title}</h3>
+                    <h3 className="font-headline text-2xl font-semibold mb-2">{feature.title}</h3>
                     <p className="text-foreground/70">{feature.description}</p>
                   </div>
                 </div>

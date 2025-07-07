@@ -107,7 +107,7 @@ export default function TreasuryPage() {
 
       <section className="py-16" ref={thesisSection.ref}>
         <div className={cn(thesisSection.isInView ? "animate-fade-in-up" : "opacity-0")}>
-          <h2 className="text-center font-headline text-3xl font-bold md:text-4xl text-glow mb-4">THE CORE THESIS: A CATEGORY OF ONE</h2>
+          <h2 className="text-center font-headline text-3xl font-semibold md:text-4xl text-glow mb-4">THE CORE THESIS: A CATEGORY OF ONE</h2>
           <p className="text-center max-w-3xl mx-auto text-lg text-foreground/80 mb-12">
             The modern enterprise is drowning in the very tools meant to save it. This is the SaaS Paradox. ΛΞVON OS is the definitive antidote—a radically integrated, AI-native operating system designed not to compete, but to make the entire fragmented SaaS market obsolete. We offer not another tool, but a fundamental paradigm shift: from operational chaos to absolute sovereignty.
           </p>
@@ -116,7 +116,7 @@ export default function TreasuryPage() {
 
       <section className="py-16" ref={architectureSection.ref}>
         <div className={cn(architectureSection.isInView ? "animate-fade-in-up" : "opacity-0")}>
-          <h2 className="text-center font-headline text-3xl font-bold md:text-4xl text-glow mb-12">THE ECONOMIC ARCHITECTURE</h2>
+          <h2 className="text-center font-headline text-3xl font-semibold md:text-4xl text-glow mb-12">THE ECONOMIC ARCHITECTURE</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-container">
             {economicPillars.map((pillar, index) => (
@@ -141,7 +141,7 @@ export default function TreasuryPage() {
 
       <section className="py-16" ref={marketSection.ref}>
         <div className={cn(marketSection.isInView ? "animate-fade-in-up" : "opacity-0")}>
-          <h2 className="text-center font-headline text-3xl font-bold md:text-4xl text-glow mb-4">THE MARKET OPPORTUNITY</h2>
+          <h2 className="text-center font-headline text-3xl font-semibold md:text-4xl text-glow mb-4">THE MARKET OPPORTUNITY</h2>
           <p className="text-center max-w-3xl mx-auto text-lg text-foreground/80 mb-12">
             We are not entering a market; we are creating one. By solving the systemic pain of SaaS sprawl for a massive and underserved SMB segment, we are tapping into a generational opportunity. The agentic economy is the tailwind; our integrated OS is the vessel.
           </p>
@@ -171,7 +171,7 @@ export default function TreasuryPage() {
 
       <section className="py-16" ref={dominanceSection.ref}>
         <div className={cn(dominanceSection.isInView ? "animate-fade-in-up" : "opacity-0")}>
-          <h2 className="text-center font-headline text-3xl font-bold md:text-4xl text-glow mb-4">THE PATH TO DOMINANCE</h2>
+          <h2 className="text-center font-headline text-3xl font-semibold md:text-4xl text-glow mb-4">THE PATH TO DOMINANCE</h2>
           <p className="text-center max-w-3xl mx-auto text-lg text-foreground/80 mb-12">
             Our 5-year campaign is predicated on audacious but achievable milestones. The model below is not a forecast; it is a war plan. It outlines a clear trajectory to profitability, driven by exponential revenue growth and disciplined focus on key performance indicators.
           </p>
@@ -222,7 +222,7 @@ export default function TreasuryPage() {
        <section className="text-center py-24" ref={ctaSection.ref}>
         <div className={cn(ctaSection.isInView ? "animate-fade-in-up" : "opacity-0")}>
             <GlassCard className="max-w-4xl mx-auto p-8 md:p-12 animate-glow-primary">
-            <h2 className="font-headline text-3xl font-bold md:text-4xl text-glow">Fund the Revolution</h2>
+            <h2 className="font-headline text-3xl font-semibold md:text-4xl text-glow">Fund the Revolution</h2>
             <p className="mt-4 text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">
                 ΛΞVON OS is a generational opportunity to define the future of enterprise software. We are seeking partners with the capital and the conviction to forge this new reality. This is an invitation to architects of the future, not speculators.
             </p>

@@ -70,7 +70,7 @@ export default function DocsPage() {
                         title="The Scriptorium" 
                         subtitle="Where arcane knowledge becomes a weapon. You struggle with opaque systems; the Scriptorium illuminates every protocol, transforming confusion into mastery. This is the source of truth."
                     />
-                    <div className="prose prose-invert max-w-none text-foreground/80 mx-auto mt-16 prose-headings:font-headline prose-headings:text-glow prose-headings:text-foreground prose-a:text-accent prose-strong:text-foreground">
+                    <div className="prose prose-invert max-w-none text-foreground/80 mx-auto mt-16 prose-headings:font-headline prose-h2:font-semibold prose-headings:text-glow prose-headings:text-foreground prose-a:text-accent prose-strong:text-foreground">
                         <h2 id="genesis-protocol">Architect's Genesis Protocol</h2>
                         <p>
                             Welcome, Architect. Your initiation begins. The Genesis Protocol is no mere setup guide; it is a ritual. Attune your environment to the resonant frequencies of the Nexus. Seed the primordial data, awaken the core microservices, and launch the application that becomes an extension of your will. Follow these steps with precision. A stable foundation is paramount.
