@@ -24,13 +24,11 @@ export function GlassCard({ children, className }: GlassCardProps) {
     const rotateY = (x / width - 0.5) * 25;
 
     cardRef.current.style.transform = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-    cardRef.current.style.transition = 'transform 0.1s ease-out';
   };
 
   const handleMouseLeave = () => {
     if (!cardRef.current) return;
     cardRef.current.style.transform = 'perspective(2000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-    cardRef.current.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
   };
 
   return (
