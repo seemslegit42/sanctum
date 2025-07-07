@@ -175,15 +175,19 @@ export default function TreasuryPage() {
                 </LineChart>
             </ChartContainer>
         </GlassCard>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-container">
-            {kpis.map((kpi) => (
-                <GlassCard key={kpi.title} className="flex flex-col items-center text-center p-8">
-                    <div className="mb-6">{kpi.icon}</div>
-                    <h3 className="font-headline text-2xl font-bold mb-2">{kpi.title}</h3>
-                    <p className="text-foreground/70">{kpi.description}</p>
-                </GlassCard>
-            ))}
-        </div>
+        <GlassCard className="p-8">
+            <div className="space-y-8">
+                {kpis.map((kpi) => (
+                    <div key={kpi.title} className="flex items-start gap-4">
+                        <div className="mt-1">{kpi.icon}</div>
+                        <div>
+                            <h3 className="font-headline text-xl font-bold mb-1">{kpi.title}</h3>
+                            <p className="text-foreground/70">{kpi.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </GlassCard>
       </section>
 
        <section className="text-center py-24">
