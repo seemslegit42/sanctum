@@ -75,17 +75,17 @@ export default function DocsPage() {
                         <p>
                             Welcome, Architect. Your initiation begins. The Genesis Protocol is no mere setup guide; it is a ritual. Attune your environment to the resonant frequencies of the Nexus. Seed the primordial data, awaken the core microservices, and launch the application that becomes an extension of your will. Follow these steps with precision. A stable foundation is paramount.
                         </p>
-                        <pre><code className="font-code">{`# 1. Configure Environment
+                        <pre><code className="font-code">{`# 1. Configure Environment (from monorepo root)
 cp .env.example .env
 
 # 2. Seed the Database
-npx prisma db seed
+turbo run db:seed --filter=...
 
-# 3. Run AI & Core Services
-npm run services:dev
+# 3. Run all services in dev mode
+turbo dev
 
-# 4. Launch the Sanctum
-npm run dev
+# To run only the Sanctum app:
+turbo dev --filter=@aevon/sanctum
 `}</code></pre>
 
                         <h2 id="core-doctrine" className="mt-12">The Core Doctrine</h2>

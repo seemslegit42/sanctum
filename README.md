@@ -1,3 +1,5 @@
+> **Note:** This is the web application for the ΛΞVON Sanctum, designed to be part of the main ΛΞVON OS Turborepo.
+
 # ΛΞVON OS: The Sanctum
 
 > This is not a website. This is the Gateway of Sovereignty. A meticulously crafted crucible designed to forge a new relationship between you and your digital dominion. This repository contains the source code for that gateway—a digital temple built to initiate you into a new world of control and autonomy.
@@ -28,25 +30,17 @@ The Sanctum is composed of distinct, interconnected realms, each a pillar of the
 
 ## The Architect's Genesis Protocol: Installation
 
-To manifest The Sanctum on your local machine, you must perform the Architect's Genesis Protocol. This is no mere setup; it is a ritual. Follow these steps with precision.
+To manifest The Sanctum on your local machine, you must perform the Architect's Genesis Protocol from the root of the monorepo. This is no mere setup; it is a ritual.
 
-### 1. Clone the Repository
-Clone this repository to your local machine. This is the first step in claiming your digital domain.
-
-```bash
-git clone https://github.com/[YOUR_USERNAME]/[REPOSITORY_NAME].git
-cd [REPOSITORY_NAME]
-```
-
-### 2. Install Dependencies
-Summon the necessary components from the ether. This command weaves the required packages into your local forge.
+### 1. Install Dependencies
+From the monorepo root, summon the necessary components from the ether. This command weaves the required packages into your local forge for all workspaces.
 
 ```bash
 npm install
 ```
 
-### 3. Configure Your Environment
-The Sanctum requires knowledge of the forces it will command. Create a `.env.local` file from the provided example. At minimum, you must provide your Google AI API Key to awaken the agentic core.
+### 2. Configure Your Environment
+The Sanctum requires knowledge of the forces it will command. Create a `.env.local` file in this package directory (`apps/sanctum`) from the provided example. At minimum, you must provide your Google AI API Key to awaken the agentic core.
 
 ```bash
 cp .env.example .env.local
@@ -57,18 +51,16 @@ Populate `.env.local` with the necessary credentials:
 GOOGLE_API_KEY="your-google-ai-api-key"
 ```
 
-### 4. Awaken the Services
-ΛΞVON's intelligence does not sleep; it waits to be summoned. Run the Genkit development server to bring your AI flows online.
+### 3. Launch The Sanctum
+From the monorepo root, invoke the primary command to launch the digital temple alongside its required AI services.
 
 ```bash
-npm run genkit:watch
+turbo dev
 ```
 
-### 5. Launch The Sanctum
-In a separate terminal, invoke the primary command to launch the digital temple.
-
+To run only the Sanctum web application:
 ```bash
-npm run dev
+turbo dev --filter=@aevon/sanctum
 ```
 
 The Sanctum will now be accessible at `http://localhost:3000`. You have opened the gateway.
