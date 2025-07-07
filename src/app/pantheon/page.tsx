@@ -58,7 +58,7 @@ export default function PantheonPage() {
             <div className="flex justify-center mb-6">
                 {component.icon}
             </div>
-            <h3 className="font-headline text-2xl text-center mb-3 text-glow">{component.name}</h3>
+            <h3 className="font-headline text-2xl font-bold text-center mb-3 text-glow">{component.name}</h3>
             <p className="text-foreground/70 text-center flex-grow mb-6">{component.description}</p>
             <Link href="/docs" className="flex items-center justify-center text-accent font-bold group mt-auto">
                 Consult the Scriptorium
