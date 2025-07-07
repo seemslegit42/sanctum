@@ -52,7 +52,7 @@ export default function ChancelPage() {
               <p className="font-headline text-accent text-sm mb-1">{article.category}</p>
               <h3 className="font-headline text-2xl font-bold mb-3 flex-grow">{article.title}</h3>
               <p className="text-foreground/70 mb-6">{article.excerpt}</p>
-              <Link href="#" className="flex items-center text-accent font-bold group mt-auto">
+              <Link href="#" className="inline-flex items-center text-accent font-bold group mt-auto self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
                 <span className="transition-all group-hover:text-glow">Read Communique</span>
                 <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
