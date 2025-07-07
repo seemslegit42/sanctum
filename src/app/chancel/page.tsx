@@ -7,14 +7,14 @@ import Image from "next/image";
 const articles = [
   {
     title: "The Myth of Multitasking: A Declaration of War on Digital Friction",
-    excerpt: "We dissect the pervasive lie that has crippled productivity for a generation, and offer a path to the silence of true automation.",
+    excerpt: "Dissecting the lie that has crippled a generation's productivity and offering a path to the silence of true automation.",
     category: "Doctrine",
     imageUrl: "https://placehold.co/600x400.png",
     aiHint: "abstract purple technology",
   },
   {
     title: "Sovereignty-as-a-Service™: Beyond Ownership to True Command",
-    excerpt: "Ownership is a facade. True power lies in command. Explore the philosophical underpinnings of the new digital sovereignty.",
+    excerpt: "Ownership is a facade. True power is command. Explore the philosophical underpinnings of the new digital sovereignty.",
     category: "Vision",
     imageUrl: "https://placehold.co/600x400.png",
     aiHint: "roman statue digital",
@@ -27,8 +27,8 @@ const articles = [
     aiHint: "glowing orb forest",
   },
   {
-    title: "The Aegis Imperative: Brainless Cybersecurity for the Sovereign Executive",
-    excerpt: "Security should not be a burden; it should be an extension of your will. How Aegis makes enterprise-grade security an intuitive reflex.",
+    title: "The Aegis Imperative: Brainless Cybersecurity",
+    excerpt: "Security is not a burden; it is an extension of your will. Aegis makes enterprise-grade security an intuitive reflex.",
     category: "Security",
     imageUrl: "https://placehold.co/600x400.png",
     aiHint: "shield light abstract",
@@ -40,7 +40,7 @@ export default function ChancelPage() {
     <div className="container mx-auto px-4">
       <PageHeader
         title="The Chancel"
-        subtitle="The sacred space for profound discourse and visionary insights into the Age of Autonomous Workflows. Here, we offer radical paths forward for sovereign operators."
+        subtitle="A sacred space for profound discourse. We offer radical paths forward into the Age of Autonomous Workflows for sovereign operators."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 py-16">
         {articles.map((article) => (

@@ -6,12 +6,12 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex justify-center items-center gap-2 mb-2">
             <CanadianMapleLeafIcon className="h-5 w-5" />
-            <p>Forged in Edmonton, Alberta, Canada.</p>
+            <p>Forged under northern skies in Edmonton, Alberta, Canada.</p>
         </div>
         <p className="text-xs max-w-md mx-auto">
-          All physical forging (The Sovereign's Sigil) and core fintech integrations (Interac) will be Canadian, fostering domestic expertise.
+          All physical forging (The Sovereign's Sigil) and core fintech integrations (Interac) are Canadian, fostering domestic expertise and global mystique.
         </p>
-        <p className="mt-6 font-headline">© {new Date().getFullYear()} ΛΞVON. The Dawn of Sovereignty.</p>
+        <p className="mt-6 font-headline">© {new Date().getFullYear()} ΛΞVON. Sovereignty is Here.</p>
       </div>
     </footer>
   );

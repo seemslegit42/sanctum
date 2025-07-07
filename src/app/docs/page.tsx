@@ -67,12 +67,12 @@ export default function DocsPage() {
                     </div>
                     <PageHeader 
                         title="The Living Scroll" 
-                        subtitle="The intricate details of the ΛΞVON OS are meticulously chronicled here. This is the source of truth for all technical and philosophical aspects of the system."
+                        subtitle="The intricate details of ΛΞVON OS, meticulously chronicled. This is the source of truth for every technical and philosophical aspect of the system."
                     />
                     <div className="prose prose-invert max-w-none text-foreground/80 mx-auto mt-16 prose-headings:font-headline prose-headings:text-glow prose-headings:text-foreground prose-a:text-accent prose-strong:text-foreground">
                         <h2 id="genesis-protocol">Architect's Genesis Protocol</h2>
                         <p>
-                            Welcome, Architect. Your initiation into the mysteries of ΛΞVON OS begins with the Genesis Protocol. This is not a mere setup guide; it is a ritual to attune your local environment to the resonant frequencies of the Nexus. Here, you will learn to seed the primordial data, awaken the core microservices, and for the first time, launch the application that will become an extension of your will. Follow these steps with precision, for a stable foundation is paramount to the great work that lies ahead.
+                            Welcome, Architect. Your initiation begins. The Genesis Protocol is no mere setup guide; it is a ritual. Attune your environment to the resonant frequencies of the Nexus. Seed the primordial data, awaken the core microservices, and launch the application that becomes an extension of your will. Follow these steps with precision. A stable foundation is paramount.
                         </p>
                         <pre><code className="font-code">{`# 1. Configure Environment
 cp .env.example .env
@@ -89,7 +89,7 @@ npm run dev
 
                         <h2 id="core-doctrine" className="mt-12">The Core Doctrine</h2>
                         <p>
-                            To wield ΛΞVON OS is to understand its soul. The Core Doctrine is a collection of foundational philosophies that separate our Agentic Mythware™ from the mundane world of software. You will learn of Sovereignty-as-a-Service™, a paradigm that elevates you from user to commander. You will come to appreciate The Silence of True Automation, where complexity is handled with unseen precision. And you will master the principles of the Ancient Roman Glass aesthetic, the visual language of our digital temple. This is the heart of ΛΞVON.
+                           To wield ΛΞVON OS is to understand its soul. The Core Doctrine collects the foundational philosophies that separate our Agentic Mythware™ from mundane software. Learn of Sovereignty-as-a-Service™, a paradigm that elevates you from user to commander. Appreciate The Silence of True Automation, where complexity is handled with unseen precision. Master the principles of the Ancient Roman Glass aesthetic, the visual language of our digital temple. This is the heart of ΛΞVON.
                         </p>
                     </div>
                 </div>

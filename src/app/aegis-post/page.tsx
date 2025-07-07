@@ -7,22 +7,22 @@ const features = [
   {
     icon: <ShieldCheck className="h-8 w-8 text-accent" />,
     title: "Multi-Phased Threat Detection",
-    description: "Combines rules-based logic with advanced, ML-powered analysis via Vertex AI to neutralize threats before they manifest.",
+    description: "Aegis combines rules-based logic with ML-powered analysis to neutralize threats before they manifest.",
   },
   {
     icon: <Bot className="h-8 w-8 text-accent" />,
     title: "Agent Governance",
-    description: "Continuously monitors Agent Integrity Certifications, ensuring every action taken within the OS is verified and authorized.",
+    description: "Aegis governs by continuously monitoring Agent Integrity Certifications, ensuring every action is verified and authorized.",
   },
   {
     icon: <DatabaseZap className="h-8 w-8 text-accent" />,
     title: "Data Integrity Protocol",
-    description: "Guarantees immutability and trustworthiness through Aegis-signed logs and atomic transactions, preserving the sanctity of your data.",
+    description: "The protocol guarantees data immutability through Aegis-signed logs and atomic transactions, preserving its sanctity.",
   },
   {
     icon: <Lock className="h-8 w-8 text-accent" />,
     title: "Zero-Trust Architecture",
-    description: "Operates on a foundational principle of 'never trust, always verify,' securing your digital domain at every possible vector.",
+    description: "Aegis operates on a foundational principle: 'never trust, always verify.' It secures your digital domain at every vector.",
   },
 ];
 
@@ -31,7 +31,7 @@ export default function AegisPostPage() {
     <div className="container mx-auto px-4">
       <PageHeader
         title="The Aegis Post"
-        subtitle="The bastion of digital defense. Aegis delivers 'USER FRIENDLY & BRAINLESS' cybersecurity, making complex threats invisible and irrelevant to the busy executive."
+        subtitle="The bastion of digital defense. Aegis delivers 'Brainless' cybersecurity, making threats invisible. Security is not a burden; it is an extension of your will."
       />
 
       <section className="py-16">
