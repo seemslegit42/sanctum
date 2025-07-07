@@ -1,7 +1,12 @@
+
+"use client";
+
 import { PageHeader } from "@/components/page-header";
 import { GlassCard } from "@/components/glass-card";
 import { ShieldCheck, Bot, DatabaseZap, Lock } from "lucide-react";
 import { AegisSigil } from "@/components/AethericSigils";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 const features = [
   {
@@ -27,6 +32,8 @@ const features = [
 ];
 
 export default function AegisPostPage() {
+  const featuresSection = useScrollAnimation();
+
   return (
     <div className="container mx-auto px-4">
       <PageHeader
@@ -38,17 +45,23 @@ export default function AegisPostPage() {
         <div className="flex justify-center mb-16">
             <AegisSigil className="h-48 w-48" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-container">
-          {features.map((feature) => (
-            <GlassCard key={feature.title} className="p-8">
-              <div className="flex items-start gap-4">
-                <div className="mt-1">{feature.icon}</div>
-                <div>
-                  <h3 className="font-headline text-2xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-foreground/70">{feature.description}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-container" ref={featuresSection.ref}>
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className={cn(featuresSection.isInView ? "animate-fade-in-up" : "opacity-0")}
+              style={{ animationDelay: `${200 + index * 150}ms` }}
+            >
+              <GlassCard className="p-8">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1">{feature.icon}</div>
+                  <div>
+                    <h3 className="font-headline text-2xl font-bold mb-2">{feature.title}</h3>
+                    <p className="text-foreground/70">{feature.description}</p>
+                  </div>
                 </div>
-              </div>
-            </GlassCard>
+              </GlassCard>
+            </div>
           ))}
         </div>
       </section>
