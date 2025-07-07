@@ -44,11 +44,11 @@ export default function ChancelPage() {
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 py-16 perspective-container">
         {articles.map((article) => (
-          <GlassCard key={article.title} className="flex flex-col overflow-hidden">
+          <GlassCard key={article.title} className="flex flex-col overflow-hidden p-0">
             <div className="relative aspect-video">
                 <Image src={article.imageUrl} alt={article.title} fill className="object-cover" data-ai-hint={article.aiHint} />
             </div>
-            <div className="p-6 flex flex-col flex-grow">
+            <div className="p-8 flex flex-col flex-grow">
               <p className="font-headline text-accent text-sm mb-1">{article.category}</p>
               <h3 className="font-headline text-2xl font-bold mb-3 flex-grow">{article.title}</h3>
               <p className="text-foreground/70 mb-6">{article.excerpt}</p>

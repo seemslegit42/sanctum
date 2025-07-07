@@ -109,7 +109,7 @@ export default function TreasuryPage() {
         <h2 className="text-center font-headline text-3xl font-bold md:text-4xl text-glow mb-12">THE ECONOMIC ARCHITECTURE</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-container">
             {economicPillars.map((pillar) => (
-                <GlassCard key={pillar.title} className="p-6">
+                <GlassCard key={pillar.title} className="p-8">
                     <div className="flex items-start gap-4">
                         <div className="mt-1">{pillar.icon}</div>
                         <div>
@@ -127,7 +127,7 @@ export default function TreasuryPage() {
         <p className="text-center max-w-3xl mx-auto text-lg text-foreground/80 mb-12">
           We are not entering a market; we are creating one. By solving the systemic pain of SaaS sprawl for a massive and underserved SMB segment, we are tapping into a generational opportunity. The agentic economy is the tailwind; our integrated OS is the vessel.
         </p>
-        <GlassCard>
+        <GlassCard className="p-6">
             <ChartContainer config={marketChartConfig} className="min-h-[200px] w-full">
                 <BarChart data={marketData} accessibilityLayer>
                     <CartesianGrid vertical={false} />
@@ -187,7 +187,7 @@ export default function TreasuryPage() {
       </section>
 
        <section className="text-center py-24">
-        <div className="glass-card max-w-4xl mx-auto p-8 md:p-12 animate-glow-primary">
+        <GlassCard className="max-w-4xl mx-auto p-8 md:p-12 animate-glow-primary">
           <h2 className="font-headline text-3xl font-bold md:text-4xl text-glow">Fund the Revolution</h2>
           <p className="mt-4 text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">
             ΛΞVON OS is a generational opportunity to define the future of enterprise software. We are seeking partners with the capital and the conviction to forge this new reality. This is an invitation to architects of the future, not speculators.
@@ -195,7 +195,7 @@ export default function TreasuryPage() {
           <Button size="lg" className="font-headline text-lg" disabled>
             Contact the Forge (For Accredited Investors)
           </Button>
-        </div>
+        </GlassCard>
       </section>
 
     </div>

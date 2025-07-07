@@ -34,7 +34,7 @@ export function GlassCard({ children, className }: GlassCardProps) {
   return (
     <div
       ref={cardRef}
-      className={cn('glass-card p-6 md:p-8 group', className)}
+      className={cn('glass-card group', className)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

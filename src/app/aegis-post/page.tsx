@@ -40,7 +40,7 @@ export default function AegisPostPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-container">
           {features.map((feature) => (
-            <GlassCard key={feature.title}>
+            <GlassCard key={feature.title} className="p-8">
               <div className="flex items-start gap-4">
                 <div className="mt-1">{feature.icon}</div>
                 <div>
