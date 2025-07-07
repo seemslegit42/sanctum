@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
+import * as React from 'react';
 
 type PageHeaderProps = {
   title: string;
   subtitle: string;
-  children?: ReactNode;
+  children?: React.ReactNode;
 };
 
 export function PageHeader({ title, subtitle, children }: PageHeaderProps) {

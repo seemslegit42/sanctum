@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import React from "react";
+import * as React from "react";
 
 const IconWrapper = ({ className, children, ...props }: React.HTMLAttributes<SVGElement>) => (
     <svg

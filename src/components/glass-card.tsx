@@ -1,8 +1,8 @@
+import * as React from 'react';
 import { cn } from '@/lib/utils';
-import { ReactNode } from 'react';
 
 type GlassCardProps = {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
 };
 
