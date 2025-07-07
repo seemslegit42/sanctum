@@ -1,13 +1,9 @@
 
 import type { Metadata } from "next";
-import dynamic from 'next/dynamic';
 import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navigation";
 import "./globals.css";
-
-const Navigation = dynamic(() => import('@/components/navigation').then(mod => mod.Navigation), {
-  ssr: false,
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.aevon.io'),

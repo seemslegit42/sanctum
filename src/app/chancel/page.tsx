@@ -76,6 +76,8 @@ export default function ChancelPage() {
                     src={article.imageUrl} 
                     alt={`Visually represents the concept of: ${article.title}`} 
                     fill 
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover" 
                     data-ai-hint={article.aiHint} 
                   />
