@@ -4,9 +4,15 @@
 import { PageHeader } from "@/components/page-header";
 import { GlassCard } from "@/components/glass-card";
 import { ShieldCheck, Bot, DatabaseZap, Lock } from "lucide-react";
-import { AegisSigil } from "@/components/AethericSigils";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
+import dynamic from 'next/dynamic';
+
+const AegisSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.AegisSigil), {
+  ssr: false,
+  loading: () => <div className="h-48 w-48" />
+});
+
 
 const features = [
   {

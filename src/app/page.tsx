@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -5,9 +6,15 @@ import { PageHeader } from "@/components/page-header";
 import { GlassCard } from "@/components/glass-card";
 import { Zap, Shield, Ban } from "lucide-react";
 import Link from "next/link";
-import { InteractiveObelisk } from "@/components/interactive-obelisk";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
+import dynamic from "next/dynamic";
+
+const InteractiveObelisk = dynamic(() => import('@/components/interactive-obelisk').then(mod => mod.InteractiveObelisk), {
+  ssr: false,
+  loading: () => <div className="relative w-64 h-[40rem]" />
+});
+
 
 const problems = [
   {

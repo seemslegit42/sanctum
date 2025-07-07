@@ -5,18 +5,18 @@ import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { GlassCard } from "@/components/glass-card";
 import { ArrowRight } from "lucide-react";
-import { 
-  BeepSigil, 
-  LoomSigil, 
-  AegisSigil, 
-  KlepsydraSigil, 
-  MicroAppsSigil, 
-  PantheonSigil, 
-  ArmorySigil, 
-  ObeliskMarketplaceSigil 
-} from "@/components/AethericSigils";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
+import dynamic from 'next/dynamic';
+
+const BeepSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.BeepSigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
+const LoomSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.LoomSigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
+const AegisSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.AegisSigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
+const KlepsydraSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.KlepsydraSigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
+const MicroAppsSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.MicroAppsSigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
+const PantheonSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.PantheonSigil), { ssr: false, loading: () => <div className="h-48 w-48" /> });
+const ArmorySigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.ArmorySigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
+const ObeliskMarketplaceSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.ObeliskMarketplaceSigil), { ssr: false, loading: () => <div className="h-16 w-16" /> });
 
 
 const components = [
