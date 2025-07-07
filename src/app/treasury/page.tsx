@@ -109,7 +109,7 @@ export default function TreasuryPage() {
         <h2 className="text-center font-headline text-3xl md:text-4xl text-glow mb-12">THE ECONOMIC ARCHITECTURE</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-container">
             {economicPillars.map((pillar) => (
-                <GlassCard key={pillar.title}>
+                <GlassCard key={pillar.title} className="p-6">
                     <div className="flex items-start gap-4">
                         <div className="mt-1">{pillar.icon}</div>
                         <div>
@@ -153,7 +153,7 @@ export default function TreasuryPage() {
          <p className="text-center max-w-3xl mx-auto text-lg text-foreground/80 mb-12">
           Our 5-year campaign is predicated on audacious but achievable milestones. The model below is not a forecast; it is a war plan. It outlines a clear trajectory to profitability, driven by exponential revenue growth and disciplined focus on key performance indicators.
         </p>
-        <GlassCard className="mb-8">
+        <GlassCard className="mb-8 p-6">
             <ChartContainer config={financialChartConfig} className="min-h-[200px] w-full">
                  <LineChart data={financialData} accessibilityLayer>
                     <CartesianGrid vertical={false} />
@@ -179,7 +179,7 @@ export default function TreasuryPage() {
             {kpis.map((kpi) => (
                 <GlassCard key={kpi.title} className="flex flex-col items-center text-center p-8">
                     <div className="mb-6">{kpi.icon}</div>
-                    <h3 className="font-headline text-2xl mb-2">{kpi.title}</h3>
+                    <h3 className="font-headline text-xl mb-2">{kpi.title}</h3>
                     <p className="text-foreground/70">{kpi.description}</p>
                 </GlassCard>
             ))}
@@ -193,7 +193,7 @@ export default function TreasuryPage() {
             ΛΞVON OS is a generational opportunity to define the future of enterprise software. We are seeking partners with the capital and the conviction to forge this new reality. This is an invitation to architects of the future, not speculators.
           </p>
           <Button size="lg" className="font-headline text-lg" disabled>
-            <Link href="#">Contact the Forge (For Accredited Investors)</Link>
+            Contact the Forge (For Accredited Investors)
           </Button>
         </div>
       </section>
