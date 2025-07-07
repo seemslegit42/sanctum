@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -13,6 +14,7 @@ const navLinks = [
   { href: "/aegis-post", label: "The Aegis Post" },
   { href: "/chancel", label: "The Chancel" },
   { href: "/docs", label: "The Scriptorium" },
+  { href: "/treasury", label: "The Treasury" },
 ];
 
 export function Navigation() {
