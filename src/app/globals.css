@@ -25,9 +25,15 @@
   }
 }
 
-@keyframes border-spin {
+@keyframes border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
   100% {
-    transform: rotate(-360deg);
+    background-position: 0% 50%;
   }
 }
 
@@ -146,7 +152,7 @@
     opacity: 1;
   }
   
-  /* Spinning border effect */
+  /* Flowing border effect */
   .glass-card::after {
       content: '';
       position: absolute;
@@ -156,14 +162,13 @@
       height: calc(100% + 4px);
       background: linear-gradient(
           60deg,
-          hsl(var(--accent) / 0),
-          hsl(var(--accent) / 0.5),
-          hsl(var(--primary) / 0.5),
-          hsl(var(--accent) / 0)
+          hsl(var(--accent) / 0.4),
+          hsl(var(--primary) / 0.6),
+          hsl(var(--accent) / 0.4)
       );
-      background-size: 300% 300%;
+      background-size: 200% 200%;
       border-radius: 1rem;
-      animation: border-spin 8s linear infinite;
+      animation: border-flow 8s ease infinite;
       opacity: 0;
       transition: opacity 0.4s ease-in-out;
   }
