@@ -63,7 +63,7 @@ export default function Home() {
       </section>
 
       <section className="text-center py-24">
-        <div className="glass-card max-w-4xl mx-auto p-8 md:p-12">
+        <div className="glass-card max-w-4xl mx-auto p-8 md:p-12 animate-glow-primary">
           <h2 className="font-headline text-3xl md:text-4xl text-glow">Begin Your Vow. Enter the Nexus.</h2>
           <p className="mt-4 text-lg text-foreground/80 mb-2 max-w-2xl mx-auto">
             This is no signup. It’s your initiation. The path to reclaiming your digital domain begins with a vow. It conducts directly within the ΛΞVON OS application. Download the OS. Let BEEP, your Architect's Apprentice, guide you through this sacred ritual, ensuring a seamless entry into your new realm.

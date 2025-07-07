@@ -99,3 +99,11 @@ export const MicroAppsIcon = (props: React.HTMLAttributes<SVGElement>) => (
 export const PantheonIcon = (props: React.HTMLAttributes<SVGElement>) => (
     <SigilWrapper {...props}><path fill="url(#sigilGradient)" stroke="hsl(var(--foreground))" d="M2,32 L32,2 L62,32 L32,62 Z" /></SigilWrapper>
 );
+
+export const ArmoryIcon = (props: React.HTMLAttributes<SVGElement>) => (
+    <SigilWrapper {...props}><path fill="url(#sigilGradient)" stroke="hsl(var(--foreground))" d="M12,2 L52,2 L58,15 L32,62 L6,15 Z M12,2 L32,32 L52,2" /></SigilWrapper>
+);
+
+export const ObeliskMarketplaceIcon = (props: React.HTMLAttributes<SVGElement>) => (
+    <SigilWrapper {...props}><path fill="url(#sigilGradient)" stroke="hsl(var(--foreground))" d="M32,2 L52,22 L32,62 L12,22 Z M22,26 L42,26 L32,12 Z" /></SigilWrapper>
+);
