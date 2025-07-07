@@ -42,7 +42,7 @@ export default function ChancelPage() {
         title="The Chancel"
         subtitle="Where raw thought ignites empire. The old world offers static discourse. The Chancel offers radical visions, dissecting industrial decay and forging new paths for sovereign operators."
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 py-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 py-16 perspective-container">
         {articles.map((article) => (
           <GlassCard key={article.title} className="flex flex-col overflow-hidden">
             <div className="relative aspect-video">

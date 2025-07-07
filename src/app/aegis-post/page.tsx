@@ -38,7 +38,7 @@ export default function AegisPostPage() {
         <div className="flex justify-center mb-16">
             <AegisIcon className="h-48 w-48" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-container">
           {features.map((feature) => (
             <GlassCard key={feature.title}>
               <div className="flex items-start gap-4">

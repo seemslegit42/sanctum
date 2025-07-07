@@ -37,7 +37,7 @@ export default function Home() {
         <p className="text-center max-w-2xl mx-auto text-lg text-foreground/80 mb-12">
           The war begins here. ΛΞVON OS declares total war on SaaS bloat—exposing:
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-container">
           {problems.map((problem, index) => (
             <GlassCard key={index} className="flex flex-col items-center text-center p-8">
               <div className="mb-6">{problem.icon}</div>
@@ -49,9 +49,9 @@ export default function Home() {
       </section>
 
       <section className="py-24 flex flex-col items-center text-center">
-        <div className="relative w-64 h-[40rem] flex items-center justify-center">
-            <ObeliskIcon className="h-full w-full" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent rounded-t-lg" />
+        <div className="relative w-64 h-[40rem] flex items-center justify-center group perspective-container">
+            <ObeliskIcon className="h-full w-full transition-transform duration-500 group-hover:scale-105 group-hover:[transform:rotateY(-15deg)_rotateX(5deg)]" style={{transformStyle: 'preserve-3d'}} />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent rounded-t-lg pointer-events-none" />
         </div>
         <h2 className="font-headline text-3xl md:text-4xl text-glow mt-8">The Obelisk of Genesis</h2>
         <p className="mt-4 max-w-2xl text-lg text-foreground/80">

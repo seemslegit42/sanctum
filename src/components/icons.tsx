@@ -60,7 +60,7 @@ export const CanadianMapleLeafIcon = (props: React.HTMLAttributes<SVGElement>) =
 );
 
 const SigilWrapper = ({ className, children, ...props }: React.HTMLAttributes<SVGElement>) => (
-    <IconWrapper viewBox="0 0 64 64" className={cn("text-accent", className)} {...props}>
+    <IconWrapper viewBox="0 0 64 64" className={cn("text-accent transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2", className)} {...props}>
         <defs>
             <linearGradient id="sigilGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="hsl(var(--accent))" />

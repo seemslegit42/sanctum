@@ -52,7 +52,7 @@ export default function PantheonPage() {
       <div className="flex justify-center mb-16">
         <PantheonIcon className="h-48 w-48"/>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-16 perspective-container">
         {components.map((component) => (
           <GlassCard key={component.name} className="flex flex-col p-8">
             <div className="flex justify-center mb-6">

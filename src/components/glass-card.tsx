@@ -8,7 +8,7 @@ type GlassCardProps = {
 
 export function GlassCard({ children, className }: GlassCardProps) {
   return (
-    <div className={cn('glass-card p-6 md:p-8', className)}>
+    <div className={cn('glass-card p-6 md:p-8 group', className)}>
       {children}
     </div>
   );
