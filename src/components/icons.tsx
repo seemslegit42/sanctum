@@ -64,7 +64,7 @@ const SigilWrapper = ({ className, children, ...props }: React.HTMLAttributes<SV
         <defs>
             <linearGradient id="sigilGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="hsl(var(--accent))" />
-                <stop offset="100%" stopColor="hsl(var(--patina-green))" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" />
             </linearGradient>
             <filter id="sigilGlow">
                 <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="hsl(var(--accent))" floodOpacity="0.7" />
