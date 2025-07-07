@@ -61,8 +61,8 @@ export default function PantheonPage() {
             <h3 className="font-headline text-2xl font-bold text-center mb-3 text-glow">{component.name}</h3>
             <p className="text-foreground/70 text-center flex-grow mb-6">{component.description}</p>
             <Link href="/docs" className="flex items-center justify-center text-accent font-bold group mt-auto">
-                Consult the Scriptorium
-                <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+              <span className="transition-all group-hover:text-glow">Consult the Scriptorium</span>
+              <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
           </GlassCard>
         ))}
