@@ -153,53 +153,57 @@ export default function TreasuryPage() {
          <p className="text-center max-w-3xl mx-auto text-lg text-foreground/80 mb-12">
           Our 5-year campaign is predicated on audacious but achievable milestones. The model below is not a forecast; it is a war plan. It outlines a clear trajectory to profitability, driven by exponential revenue growth and disciplined focus on key performance indicators.
         </p>
-        <GlassCard className="mb-8 p-6">
-            <ChartContainer config={financialChartConfig} className="min-h-[200px] w-full">
-                 <LineChart data={financialData} accessibilityLayer>
-                    <CartesianGrid vertical={false} />
-                    <XAxis
-                        dataKey="year"
-                        tickLine={false}
-                        axisLine={false}
-                        tickMargin={8}
-                    />
-                    <YAxis tickFormatter={(tick) => `$${tick}M`} />
-                    <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
-                    <Line
-                        dataKey="revenue"
-                        type="natural"
-                        stroke="var(--color-revenue)"
-                        strokeWidth={2}
-                        dot={true}
-                    />
-                </LineChart>
-            </ChartContainer>
-        </GlassCard>
-        <GlassCard className="p-8">
-            <div className="space-y-8">
-                {kpis.map((kpi) => (
-                    <div key={kpi.title} className="flex items-start gap-4">
-                        <div className="mt-1">{kpi.icon}</div>
-                        <div>
-                            <h3 className="font-headline text-xl font-bold mb-1">{kpi.title}</h3>
-                            <p className="text-foreground/70">{kpi.description}</p>
+        <div className="perspective-container">
+            <GlassCard className="mb-8 p-6">
+                <ChartContainer config={financialChartConfig} className="min-h-[200px] w-full">
+                    <LineChart data={financialData} accessibilityLayer>
+                        <CartesianGrid vertical={false} />
+                        <XAxis
+                            dataKey="year"
+                            tickLine={false}
+                            axisLine={false}
+                            tickMargin={8}
+                        />
+                        <YAxis tickFormatter={(tick) => `$${tick}M`} />
+                        <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
+                        <Line
+                            dataKey="revenue"
+                            type="natural"
+                            stroke="var(--color-revenue)"
+                            strokeWidth={2}
+                            dot={true}
+                        />
+                    </LineChart>
+                </ChartContainer>
+            </GlassCard>
+            <GlassCard className="p-8">
+                <div className="space-y-8">
+                    {kpis.map((kpi) => (
+                        <div key={kpi.title} className="flex items-start gap-4">
+                            <div className="mt-1">{kpi.icon}</div>
+                            <div>
+                                <h3 className="font-headline text-xl font-bold mb-1">{kpi.title}</h3>
+                                <p className="text-foreground/70">{kpi.description}</p>
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
-        </GlassCard>
+                    ))}
+                </div>
+            </GlassCard>
+        </div>
       </section>
 
        <section className="text-center py-24">
-        <GlassCard className="max-w-4xl mx-auto p-8 md:p-12 animate-glow-primary">
-          <h2 className="font-headline text-3xl font-bold md:text-4xl text-glow">Fund the Revolution</h2>
-          <p className="mt-4 text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">
-            ΛΞVON OS is a generational opportunity to define the future of enterprise software. We are seeking partners with the capital and the conviction to forge this new reality. This is an invitation to architects of the future, not speculators.
-          </p>
-          <Button size="lg" className="font-headline text-lg" disabled>
-            Contact the Forge (For Accredited Investors)
-          </Button>
-        </GlassCard>
+        <div className="perspective-container">
+            <GlassCard className="max-w-4xl mx-auto p-8 md:p-12 animate-glow-primary">
+            <h2 className="font-headline text-3xl font-bold md:text-4xl text-glow">Fund the Revolution</h2>
+            <p className="mt-4 text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">
+                ΛΞVON OS is a generational opportunity to define the future of enterprise software. We are seeking partners with the capital and the conviction to forge this new reality. This is an invitation to architects of the future, not speculators.
+            </p>
+            <Button size="lg" className="font-headline text-lg" disabled>
+                Contact the Forge (For Accredited Investors)
+            </Button>
+            </GlassCard>
+        </div>
       </section>
 
     </div>
