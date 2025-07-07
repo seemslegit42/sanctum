@@ -79,9 +79,9 @@ export function Navigation() {
                     transitionDelay: isOpen ? `${i * 100}ms` : '0ms'
                   }}
                 >
-                  <Link href={link.href} className="focus-visible:outline-none">
+                  <Link href={link.href} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
                     <span className={cn(
-                      "font-headline text-4xl md:text-5xl text-foreground/70 transition-colors hover:text-foreground hover:text-glow focus-visible:text-glow",
+                      "font-headline text-4xl md:text-5xl text-foreground/70 transition-all duration-300 hover:text-foreground hover:text-glow hover:-translate-y-1 focus-visible:text-glow focus-visible:-translate-y-1",
                       pathname === link.href && "text-foreground text-glow"
                     )}>
                       {link.label}
