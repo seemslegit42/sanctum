@@ -9,7 +9,6 @@ type GlassCardProps = {
 
 export function GlassCard({ children, className }: GlassCardProps) {
   const cardRef = React.useRef<HTMLDivElement>(null);
-  const [style, setStyle] = React.useState<React.CSSProperties>({});
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -17,32 +16,33 @@ export function GlassCard({ children, className }: GlassCardProps) {
     const { left, top, width, height } = cardRef.current.getBoundingClientRect();
     const x = e.clientX - left;
     const y = e.clientY - top;
+    
+    cardRef.current.style.setProperty('--mouse-x', `${x}px`);
+    cardRef.current.style.setProperty('--mouse-y', `${y}px`);
 
     const rotateX = (y / height - 0.5) * -25;
     const rotateY = (x / width - 0.5) * 25;
 
-    setStyle({
-      transform: `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
-      transition: 'transform 0.1s ease-out'
-    });
+    cardRef.current.style.transform = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+    cardRef.current.style.transition = 'transform 0.1s ease-out';
   };
 
   const handleMouseLeave = () => {
-    setStyle({
-      transform: 'perspective(2000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)',
-      transition: 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)'
-    });
+    if (!cardRef.current) return;
+    cardRef.current.style.transform = 'perspective(2000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    cardRef.current.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
   };
 
   return (
     <div
       ref={cardRef}
       className={cn('glass-card p-6 md:p-8 group', className)}
-      style={style}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {children}
+      <div className="relative z-10">
+        {children}
+      </div>
     </div>
   );
 }

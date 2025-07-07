@@ -105,7 +105,7 @@
   }
   
   .glass-card {
-    @apply relative z-10 rounded-2xl;
+    @apply relative z-10 rounded-2xl overflow-hidden;
     @apply bg-secondary/10;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.25);
     transition: box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -116,16 +116,35 @@
     box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 15px 12px rgba(0,0,0,0.22);
   }
 
+  /* Glare effect that follows the mouse */
   .glass-card::before {
-    @apply content-[''] absolute -inset-px rounded-2xl z-[-1];
-    @apply bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.4s;
+      background: radial-gradient(
+        400px circle at var(--mouse-x) var(--mouse-y),
+        hsla(0, 0%, 100%, 0.15),
+        transparent 40%
+      );
+      z-index: 0; /* Above card background, below content */
+  }
+
+  .glass-card:hover::before {
+    opacity: 1;
   }
   
+  /* Spinning border effect */
   .glass-card::after {
       content: '';
       position: absolute;
       top: -2px; left: -2px;
-      z-index: -2;
+      z-index: -2; /* Behind the card background */
       width: calc(100% + 4px);
       height: calc(100% + 4px);
       background: linear-gradient(
