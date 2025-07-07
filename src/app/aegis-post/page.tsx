@@ -1,7 +1,7 @@
 import { PageHeader } from "@/components/page-header";
 import { GlassCard } from "@/components/glass-card";
 import { ShieldCheck, Bot, DatabaseZap, Lock } from "lucide-react";
-import { AegisIcon } from "@/components/icons";
+import { AegisSigil } from "@/components/AethericSigils";
 
 const features = [
   {
@@ -36,7 +36,7 @@ export default function AegisPostPage() {
 
       <section className="py-16">
         <div className="flex justify-center mb-16">
-            <AegisIcon className="h-48 w-48" />
+            <AegisSigil className="h-48 w-48" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-container">
           {features.map((feature) => (

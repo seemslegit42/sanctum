@@ -2,41 +2,51 @@ import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { GlassCard } from "@/components/glass-card";
 import { ArrowRight } from "lucide-react";
-import { BeepIcon, LoomIcon, AegisIcon, KlepsydraIcon, MicroAppsIcon, PantheonIcon, ArmoryIcon, ObeliskMarketplaceIcon } from "@/components/icons";
+import { 
+  BeepSigil, 
+  LoomSigil, 
+  AegisSigil, 
+  KlepsydraSigil, 
+  MicroAppsSigil, 
+  PantheonSigil, 
+  ArmorySigil, 
+  ObeliskMarketplaceSigil 
+} from "@/components/AethericSigils";
+
 
 const components = [
   {
-    icon: <BeepIcon className="h-16 w-16" />,
+    icon: <BeepSigil className="h-16 w-16" />,
     name: "BEEP",
     description: "The command core. Your loyal priesthood. BEEP translates your intent into action, orchestrating the OS through natural language.",
   },
   {
-    icon: <MicroAppsIcon className="h-16 w-16" />,
+    icon: <MicroAppsSigil className="h-16 w-16" />,
     name: "Micro-Apps",
     description: "Atomic units of utility. Summoned spirits. These are not static applications but on-demand tools manifested to perform specific tasks.",
   },
   {
-    icon: <LoomIcon className="h-16 w-16" />,
+    icon: <LoomSigil className="h-16 w-16" />,
     name: "Loom Studio",
     description: "The Architect's Sanctum. The forge. A powerful interface to design, observe, and debug the complex workflows that power your autonomous agents.",
   },
   {
-    icon: <AegisIcon className="h-16 w-16" />,
+    icon: <AegisSigil className="h-16 w-16" />,
     name: "Aegis",
     description: "Your always-on bodyguard. A vigilant security layer providing brainless, enterprise-grade protection for your entire digital domain.",
   },
   {
-    icon: <KlepsydraIcon className="h-16 w-16" />,
+    icon: <KlepsydraSigil className="h-16 w-16" />,
     name: "KLEPSYDRA Engine",
     description: "The economic heart. The abacus of fates. It governs the flow of resources and transforms work into a compelling, strategic endeavor.",
   },
   {
-    icon: <ArmoryIcon className="h-16 w-16" />,
+    icon: <ArmorySigil className="h-16 w-16" />,
     name: "ΛΞVON Armory Marketplace",
     description: "The sanctified repository for Micro-Apps and Chaos Cards.",
   },
   {
-    icon: <ObeliskMarketplaceIcon className="h-16 w-16" />,
+    icon: <ObeliskMarketplaceSigil className="h-16 w-16" />,
     name: "Obelisk Marketplace",
     description: "The vault of manifested sovereignty for real-world asset transmutation.",
   }
@@ -50,12 +60,12 @@ export default function PantheonPage() {
         subtitle="Behold the instruments of your new domain. The old world is a maze of disparate tools. The Pantheon presents a unified vision, unveiling each instrument of sovereignty to show you the whole machine."
       />
       <div className="flex justify-center mb-16">
-        <PantheonIcon className="h-48 w-48"/>
+        <PantheonSigil className="h-48 w-48"/>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-16 perspective-container">
         {components.map((component) => (
           <GlassCard key={component.name} className="flex flex-col p-8">
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-6 h-16 w-16 mx-auto">
                 {component.icon}
             </div>
             <h3 className="font-headline text-2xl font-bold text-center mb-3 text-glow">{component.name}</h3>
