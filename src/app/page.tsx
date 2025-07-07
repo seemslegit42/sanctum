@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/page-header";
 import { GlassCard } from "@/components/glass-card";
 import { Zap, Shield, Ban } from "lucide-react";
 import Link from "next/link";
-import { ObeliskIcon } from "@/components/icons";
+import { InteractiveObelisk } from "@/components/interactive-obelisk";
 
 const problems = [
   {
@@ -49,10 +49,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 flex flex-col items-center text-center">
-        <div className="relative w-64 h-[40rem] flex items-center justify-center group perspective-container">
-            <ObeliskIcon className="h-full w-full transition-transform duration-500 group-hover:scale-105 group-hover:[transform:rotateY(-15deg)_rotateX(5deg)]" style={{transformStyle: 'preserve-3d'}} />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent rounded-t-lg pointer-events-none" />
-        </div>
+        <InteractiveObelisk />
         <h2 className="font-headline text-3xl md:text-4xl text-glow mt-8">The Obelisk of Genesis</h2>
         <p className="mt-4 max-w-2xl text-lg text-foreground/80">
           This monolith represents the collective power accumulated within the OS. A testament to the ultimate endgame for Initiates: True Sovereignty.

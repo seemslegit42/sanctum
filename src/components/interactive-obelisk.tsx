@@ -1,25 +1,21 @@
 "use client";
+
 import * as React from 'react';
-import { cn } from '@/lib/utils';
+import { ObeliskIcon } from '@/components/icons';
 
-type GlassCardProps = {
-  children: React.ReactNode;
-  className?: string;
-};
-
-export function GlassCard({ children, className }: GlassCardProps) {
-  const cardRef = React.useRef<HTMLDivElement>(null);
+export function InteractiveObelisk() {
+  const containerRef = React.useRef<HTMLDivElement>(null);
   const [style, setStyle] = React.useState<React.CSSProperties>({});
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!containerRef.current) return;
 
-    const { left, top, width, height } = cardRef.current.getBoundingClientRect();
+    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
     const x = e.clientX - left;
     const y = e.clientY - top;
 
-    const rotateX = (y / height - 0.5) * -25;
-    const rotateY = (x / width - 0.5) * 25;
+    const rotateX = (y / height - 0.5) * -10;
+    const rotateY = (x / width - 0.5) * 10;
 
     setStyle({
       transform: `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
@@ -35,14 +31,16 @@ export function GlassCard({ children, className }: GlassCardProps) {
   };
 
   return (
-    <div
-      ref={cardRef}
-      className={cn('glass-card p-6 md:p-8 group', className)}
-      style={style}
+    <div 
+      ref={containerRef}
+      className="relative w-64 h-[40rem] flex items-center justify-center"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {children}
+      <div style={style}>
+        <ObeliskIcon className="h-full w-full" style={{ transformStyle: 'preserve-3d' }} />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent rounded-t-lg pointer-events-none" />
     </div>
   );
 }
