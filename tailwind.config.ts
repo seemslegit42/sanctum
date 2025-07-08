@@ -98,11 +98,22 @@ export default {
             transform: 'translateY(0)',
           },
         },
+        'dramatic-zoom-in': {
+          '0%': {
+            opacity: '0',
+            transform: 'scale(0.9) translateY(10px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1) translateY(0)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+        'dramatic-zoom-in': 'dramatic-zoom-in 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards',
       },
       typography: (theme) => ({
         DEFAULT: {

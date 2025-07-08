@@ -4,7 +4,7 @@
 import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/page-header";
 import { GlassCard } from "@/components/glass-card";
-import { Zap, Shield, Ban } from "lucide-react";
+import { ChainsIcon, ShatteredIcon, SkullIcon } from "@/components/icons";
 import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
@@ -18,17 +18,17 @@ const InteractiveObelisk = dynamic(() => import('@/components/interactive-obelis
 
 const problems = [
   {
-    icon: <Zap className="h-8 w-8 text-accent" />,
+    icon: <ShatteredIcon className="h-8 w-8 text-accent" />,
     title: "Fragmentation.",
     description: "Pervasive fragmentation leads to isolated data, inconsistent reports, and operational chaos.",
   },
   {
-    icon: <Shield className="h-8 w-8 text-accent" />,
+    icon: <SkullIcon className="h-8 w-8 text-accent" />,
     title: "Hidden Growth Taxes.",
     description: "Suffer from escalating costs, unreliable support, and features held for ransom in higher tiers.",
   },
   {
-    icon: <Ban className="h-8 w-8 text-accent" />,
+    icon: <ChainsIcon className="h-8 w-8 text-accent" />,
     title: "The SaaS Trap.",
     description: "Proprietary ecosystems restrict agility, locking you into a walled garden that stifles innovation.",
   },
@@ -46,6 +46,7 @@ export default function HomeContent() {
       <PageHeader
         title="Your Business Is Trapped"
         subtitle="You are not failing. Your tools are. Drowning in fragmented apps and hidden costs, you are trapped in a dying SaaS ecosystem. The Nexus is your first strike for sovereignty."
+        animationType="dramatic"
       />
 
       <section className="py-16" ref={declarationSection.ref}>
