@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from 'react';
@@ -18,7 +19,7 @@ export function PageHeader({ title, subtitle, children }: PageHeaderProps) {
       <h1 className={cn("font-headline text-4xl font-bold md:text-6xl lg:text-7xl text-glow", isInView ? 'animate-fade-in-up' : 'opacity-0')}>
         {title}
       </h1>
-      <p className={cn("mt-4 max-w-3xl mx-auto text-lg text-foreground/80", isInView ? 'animate-fade-in-up' : 'opacity-0')} style={{ animationDelay: '200ms' }}>
+      <p className={cn("mt-4 max-w-3xl mx-auto text-lg text-foreground/90", isInView ? 'animate-fade-in-up' : 'opacity-0')} style={{ animationDelay: '200ms' }}>
         {subtitle}
       </p>
       <div 

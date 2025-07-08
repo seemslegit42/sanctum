@@ -51,7 +51,7 @@ export default function HomeContent() {
       <section className="py-16" ref={declarationSection.ref}>
         <div className={cn(declarationSection.isInView ? "animate-fade-in-up" : "opacity-0")}>
           <h2 className="text-center font-headline text-3xl font-semibold md:text-4xl text-glow mb-4">THE DOCTRINE DECLARATION</h2>
-          <p className="text-center max-w-2xl mx-auto text-lg text-foreground/80 mb-12" style={{ animationDelay: '200ms' }}>
+          <p className="text-center max-w-2xl mx-auto text-lg text-foreground/90 mb-12" style={{ animationDelay: '200ms' }}>
             The war begins here. ΛΞVON OS declares total war on SaaS bloat—exposing:
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function HomeContent() {
               <GlassCard className="flex flex-col items-center text-center p-8 h-full">
                 <div className="mb-6">{problem.icon}</div>
                 <h3 className="font-headline text-2xl font-bold mb-2">{problem.title}</h3>
-                <p className="text-foreground/70">{problem.description}</p>
+                <p className="text-foreground/80">{problem.description}</p>
               </GlassCard>
             </div>
           ))}
@@ -78,7 +78,7 @@ export default function HomeContent() {
         </div>
         <div className={cn(obeliskSection.isInView ? "animate-fade-in-up" : "opacity-0")} style={{ animationDelay: '200ms' }}>
             <h2 className="font-headline text-3xl font-semibold md:text-4xl text-glow mt-8">The Obelisk of Genesis</h2>
-            <p className="mt-4 max-w-2xl text-lg text-foreground/80">
+            <p className="mt-4 max-w-2xl text-lg text-foreground/90">
             This monolith represents the collective power accumulated within the OS. A testament to the ultimate endgame for Initiates: True Sovereignty.
             </p>
             <p className="mt-8 text-2xl font-headline text-glow animate-pulse">
@@ -91,7 +91,7 @@ export default function HomeContent() {
         <div className={cn(ctaSection.isInView ? "animate-fade-in-up" : "opacity-0")}>
           <GlassCard className="max-w-4xl mx-auto p-8 md:p-12 animate-glow-primary">
             <h2 className="font-headline text-3xl font-semibold md:text-4xl text-glow">Begin Your Vow. Enter the Nexus.</h2>
-            <p className="mt-4 text-lg text-foreground/80 mb-2 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-foreground/90 mb-2 max-w-2xl mx-auto">
               This is no signup. It’s your initiation. The path to reclaiming your digital domain begins with a vow. It conducts directly within the ΛΞVON OS application. Download the OS. Let BEEP, your Architect's Apprentice, guide you through this sacred ritual, ensuring a seamless entry into your new realm.
             </p>
             <p className="text-sm text-foreground/60 mb-8">

@@ -107,7 +107,7 @@ export default {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            '--tw-prose-body': theme('colors.foreground[DEFAULT] / 0.8'),
+            '--tw-prose-body': theme('colors.foreground[DEFAULT] / 0.9'),
             '--tw-prose-headings': theme('colors.foreground[DEFAULT]'),
             '--tw-prose-lead': theme('colors.foreground[DEFAULT]'),
             '--tw-prose-links': theme('colors.accent[DEFAULT]'),
