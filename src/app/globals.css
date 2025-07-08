@@ -136,7 +136,7 @@
   }
 
   .glass-card:hover {
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.45), 0 0 45px hsl(var(--primary)/0.3);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.45), 0 0 60px -15px hsl(var(--primary)/0.6);
   }
 
   /* Glare effect that follows the mouse */

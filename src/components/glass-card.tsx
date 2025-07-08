@@ -20,8 +20,8 @@ export function GlassCard({ children, className }: GlassCardProps) {
     cardRef.current.style.setProperty('--mouse-x', `${x}px`);
     cardRef.current.style.setProperty('--mouse-y', `${y}px`);
 
-    const rotateX = (y / height - 0.5) * -25;
-    const rotateY = (x / width - 0.5) * 25;
+    const rotateX = (y / height - 0.5) * -15;
+    const rotateY = (x / width - 0.5) * 15;
 
     cardRef.current.style.transform = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
   };
