@@ -3,13 +3,11 @@ import type { Metadata } from 'next';
 import HomeContent from './home-content';
 
 export const metadata: Metadata = {
-  title: {
-    absolute: "ΛΞVON: The AI-Native Operating System to Replace SaaS"
-  },
-  description: "Escape the SaaS trap. ΛΞVON is the AI-native operating system that unifies your tools and automates workflows. Reclaim your digital sovereignty today.",
+  title: "ΛΞVON OS: The Last Operating System You'll Ever Need",
+  description: "ΛΞVON OS is a sovereign agentic operating system designed to make fragmented SaaS obsolete. It delivers sovereignty, not a dashboard.",
   openGraph: {
-    title: "ΛΞVON: The AI-Native Operating System to Replace SaaS",
-    description: "Escape the SaaS trap. ΛΞVON is the AI-native operating system that unifies your tools and automates workflows. Reclaim your digital sovereignty today.",
+    title: "ΛΞVON OS: The Last Operating System You'll Ever Need",
+    description: "ΛΞVON OS is a sovereign agentic operating system designed to make fragmented SaaS obsolete. It delivers sovereignty, not a dashboard.",
   }
 };
 

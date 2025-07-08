@@ -18,6 +18,13 @@ const IconWrapper = ({ className, children, ...props }: React.HTMLAttributes<SVG
     </svg>
 );
 
+export const LambdaXiVONIcon = (props: React.HTMLAttributes<SVGElement>) => (
+    <IconWrapper viewBox="0 0 24 24" {...props}>
+        <path d="M3.5 18.5 L12 5 L20.5 18.5 M6 14 L18 14" strokeWidth="2" />
+        <path d="M10 12 L12 14.5 L14 12" strokeWidth="1.5" />
+    </IconWrapper>
+);
+
 export const OrbIcon = (props: React.HTMLAttributes<SVGElement>) => (
     <IconWrapper {...props}>
         <defs>
