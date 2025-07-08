@@ -4,12 +4,105 @@
 import * as React from 'react';
 import { useRouter } from 'next/navigation';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { ScrollControls, useScroll, Html, Text, Stars, Point, Points } from '@react-three/drei';
+import { ScrollControls, useScroll, Html, Stars, Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
-import { useSpring, a } from '@react-spring/three';
 
 import { LambdaXiVONIcon } from '@/components/icons';
-import { BeepSigil } from '@/components/AethericSigils';
+
+// New component for the particle swarm
+function AgentSwarm({ count = 5000 }) {
+    const pointsRef = React.useRef<any>();
+    const { size } = useThree();
+    const [points] = React.useState(() => {
+        const positions = new Float32Array(count * 3);
+        const p = new THREE.Vector3();
+        for (let i = 0; i < count; i++) {
+            // Distribute points in a spherical volume
+            const r = Math.random() * 10 + 5;
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+            p.setFromSphericalCoords(r, phi, theta);
+            p.toArray(positions, i * 3);
+        }
+        return positions;
+    });
+
+    useFrame((state, delta) => {
+        if (pointsRef.current) {
+            pointsRef.current.rotation.y += delta * 0.05;
+        }
+    });
+
+    return (
+        <Points ref={pointsRef} positions={points} stride={3} frustumCulled={false}>
+            <PointMaterial
+                transparent
+                color="hsl(var(--primary))"
+                size={0.05}
+                sizeAttenuation={true}
+                depthWrite={false}
+            />
+        </Points>
+    );
+}
+
+// New component for the "parasite" SaaS particles
+function SaaSParticles({ count = 200 }) {
+    const pointsRef = React.useRef<any>();
+    const scroll = useScroll();
+
+    const [positions] = React.useState(() => {
+        const pos = new Float32Array(count * 3);
+        for (let i = 0; i < count; i++) {
+            pos.set([
+                (Math.random() - 0.5) * 2,
+                (Math.random() - 0.5) * 7,
+                (Math.random() - 0.5) * 0.1,
+            ], i * 3);
+        }
+        return pos;
+    });
+    
+    const originalPositions = React.useMemo(() => new Float32Array(positions), [positions]);
+
+    useFrame(() => {
+        if (!pointsRef.current) return;
+        
+        const problemRange = scroll.range(sections.problem.start, sections.problem.end - sections.problem.start);
+        pointsRef.current.material.opacity = problemRange * 2;
+        pointsRef.current.visible = problemRange > 0;
+
+        const solutionRange = scroll.range(sections.solution.start, sections.solution.end - sections.solution.start);
+        if (solutionRange > 0) {
+            const pos = pointsRef.current.geometry.attributes.position;
+            for (let i = 0; i < count; i++) {
+                const x = THREE.MathUtils.lerp(pos.getX(i), 0, solutionRange * 0.2);
+                const y = THREE.MathUtils.lerp(pos.getY(i), 0, solutionRange * 0.2);
+                const z = THREE.MathUtils.lerp(pos.getZ(i), 0, solutionRange * 0.2);
+                pos.setXYZ(i, x, y, z);
+            }
+            pos.needsUpdate = true;
+            pointsRef.current.material.opacity = Math.max(0, 1.0 - solutionRange * 2);
+        } else if (problemRange <= 0) {
+            pointsRef.current.geometry.attributes.position.array.set(originalPositions);
+            pointsRef.current.geometry.attributes.position.needsUpdate = true;
+        }
+    });
+
+    return (
+        <Points ref={pointsRef} positions={positions} stride={3} frustumCulled={false}>
+             <PointMaterial
+                transparent
+                color="#cc3333"
+                size={0.08}
+                sizeAttenuation={true}
+                depthWrite={false}
+                opacity={0}
+            />
+        </Points>
+    );
+}
+
 
 const sections = {
   intro: { start: 0, end: 0.15 },
@@ -21,50 +114,53 @@ const sections = {
 
 function Monolith() {
   const monolithRef = React.useRef<THREE.Mesh>(null!);
-  const sigilRef = React.useRef<THREE.Mesh>(null!);
   const scroll = useScroll();
 
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    if (sigilRef.current) {
-        sigilRef.current.material.emissiveIntensity = Math.sin(t * 1.5) * 0.5 + 1.5;
+  useFrame(() => {
+    const revelationStart = sections.revelation.start;
+    const progressToRevelation = scroll.offset / revelationStart;
+
+    if (monolithRef.current) {
+        monolithRef.current.material.opacity = Math.max(0, 1 - progressToRevelation * 1.5);
+        monolithRef.current.visible = progressToRevelation < 0.9;
     }
-    const a = scroll.range(sections.problem.start, sections.problem.end - sections.problem.start);
-    monolithRef.current.material.opacity = 1 - a * 1.5;
   });
 
   return (
     <group>
         <mesh ref={monolithRef} position={[0, 0, 0]}>
             <boxGeometry args={[2.5, 8, 0.2]} />
-            <meshStandardMaterial 
-                color="#050505" 
-                metalness={0.9} 
+            <meshPhysicalMaterial 
                 roughness={0.1}
-                transparent={true}
-            />
-        </mesh>
-        <mesh ref={sigilRef} position={[0, 0, 0.11]}>
-            <planeGeometry args={[0.8, 0.8]} />
-            <meshStandardMaterial
-                color="hsl(var(--primary))"
-                emissive="hsl(var(--primary))"
-                emissiveIntensity={1.5}
-                toneMapped={false}
+                transmission={0.9}
+                thickness={1}
+                ior={1.5}
+                color="#111111"
                 transparent
             />
         </mesh>
+        <SaaSParticles />
+        <group position={[0, 0, 0.11]}>
+             <Html center>
+                <div className="animate-pulse">
+                    <LambdaXiVONIcon className="w-24 h-24 text-primary" style={{filter: 'drop-shadow(0 0 10px hsl(var(--primary)))'}} />
+                </div>
+             </Html>
+        </group>
     </group>
   );
 }
 
 function Section({ children, start, end, ...props }) {
-  const ref = React.useRef<THREE.Group>(null!);
+  const ref = React.useRef<any>(null!);
   const scroll = useScroll();
   
   useFrame(() => {
     const r = scroll.range(start, end - start);
-    ref.current.style.opacity = r;
+    if(ref.current) {
+        ref.current.style.opacity = r;
+        ref.current.style.pointerEvents = r > 0 ? 'auto' : 'none';
+    }
   });
 
   return <Html ref={ref} portal={{current: scroll.fixed}} {...props}>{children}</Html>
@@ -117,27 +213,15 @@ function CommandPrompt() {
 function Scene() {
   const scroll = useScroll();
   const { camera } = useThree();
-  const [{camPos, camRot}, set] = useSpring(() => ({
-    camPos: [0, 0, 10],
-    camRot: [0, 0, 0],
-    config: { mass: 5, tension: 170, friction: 50 },
-  }));
 
   useFrame(() => {
-    const r1 = scroll.range(0, 0.4);
-    const r2 = scroll.range(0.4, 0.4);
-    const r3 = scroll.range(0.8, 0.2);
+    const r1 = scroll.range(0, 1);
+    const rRevelation = scroll.range(sections.revelation.start, sections.revelation.end - sections.revelation.start);
 
-    const newCamPosX = r2 * -2;
-    const newCamPosZ = 10 - r1 * 10 + r2 * 5;
+    camera.position.z = 10 - r1 * 10;
     
-    set({ camPos: [newCamPosX, 0, newCamPosZ] });
-    camera.position.set(...(camPos.get() as [number, number, number]));
-    camera.rotation.set(...(camRot.get() as [number, number, number]));
-    
-    if(r3 > 0) {
-      const cathedralProgress = scroll.range(sections.revelation.start, sections.revelation.end - sections.revelation.start);
-      camera.position.z = 5 - cathedralProgress * 10;
+    if (rRevelation > 0) {
+        camera.position.z = 0 - rRevelation * 15;
     }
   });
 
@@ -168,16 +252,15 @@ function Scene() {
         <p className="text-2xl text-foreground/80">It is a sovereign agentic operating system.</p>
         <p className="text-2xl text-foreground/80">It delivers sovereignty, not a dashboard.</p>
       </Section>
-
-      <Section start={sections.revelation.start} end={sections.revelation.end} className="flex flex-col items-center justify-center text-center">
-        <h2 className="text-4xl font-headline text-glow mb-4">This is self-assembling software.</h2>
-        <p className="text-2xl text-foreground/80">Our methodology is the product.</p>
-        <p className="text-2xl text-foreground/80">We are building the machine that builds the machine.</p>
-      </Section>
       
-      {/* Cathedral Scene */}
-      <group position={[0,0,-10]}>
-         <BeepSigil className="h-full w-full opacity-50"/>
+      {/* Revelation Scene */}
+      <group position={[0,0,-5]}>
+         <AgentSwarm />
+         <Section start={sections.revelation.start} end={sections.revelation.end} className="flex flex-col items-center justify-center text-center">
+            <h2 className="text-4xl font-headline text-glow mb-4">This is self-assembling software.</h2>
+            <p className="text-2xl text-foreground/80">Our methodology is the product.</p>
+            <p className="text-2xl text-foreground/80">We are building the machine that builds the machine.</p>
+         </Section>
       </group>
 
       <Section start={sections.cta.start} end={sections.cta.end} className="flex flex-col items-center justify-center text-center">
