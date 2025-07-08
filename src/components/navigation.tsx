@@ -11,6 +11,7 @@ import { OrbIcon } from "@/components/icons";
 const navLinks = [
   { href: "/", label: "The Nexus" },
   { href: "/pantheon", label: "The Pantheon" },
+  { href: "/sigil", label: "The Sovereign's Sigil" },
   { href: "/aegis-post", label: "The Aegis Post" },
   { href: "/chancel", label: "The Chancel" },
   { href: "/docs", label: "The Scriptorium" },

@@ -147,3 +147,24 @@ export function ObeliskMarketplaceSigil(props: { className?: string }) {
         </SigilWrapper>
     );
 }
+
+export function SovereignsSigil(props: { className?: string }) {
+    return (
+        <SigilWrapper {...props}>
+            <group>
+                <mesh position={[0, -0.25, 0]}>
+                    <cylinderGeometry args={[0.1, 0.1, 2.5, 8]} />
+                     <meshStandardMaterial 
+                        color="#222" 
+                        metalness={0.95} 
+                        roughness={0.2} 
+                    />
+                </mesh>
+                <mesh position={[0, 1.25, 0]}>
+                    <icosahedronGeometry args={[0.3, 0]} />
+                    <SigilMaterial />
+                </mesh>
+            </group>
+        </SigilWrapper>
+    );
+}
