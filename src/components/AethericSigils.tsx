@@ -1,3 +1,4 @@
+
 "use client";
 import * as React from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -30,15 +31,26 @@ const SigilWrapper = ({ children, className }: SigilWrapperProps) => {
     );
 }
 
-const SigilMaterial = () => (
-    <meshStandardMaterial 
-        color="hsl(var(--accent))" 
-        emissive="hsl(var(--primary))" 
-        emissiveIntensity={0.6}
-        metalness={0.9} 
-        roughness={0.1} 
-    />
-);
+const SigilMaterial = () => {
+    const materialRef = React.useRef<any>();
+    useFrame((state) => {
+        if (materialRef.current) {
+            // Smoothly pulsate the emissive intensity
+            materialRef.current.emissiveIntensity = Math.sin(state.clock.getElapsedTime() * 1.5) * 0.2 + 0.6;
+        }
+    });
+
+    return (
+        <meshStandardMaterial 
+            ref={materialRef}
+            color="hsl(var(--accent))" 
+            emissive="hsl(var(--primary))" 
+            emissiveIntensity={0.6}
+            metalness={0.9} 
+            roughness={0.1} 
+        />
+    );
+};
 
 export function BeepSigil(props: { className?: string }) {
     return (

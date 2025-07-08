@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -90,7 +91,7 @@ export default {
         'fade-in-up': {
           '0%': {
             opacity: '0',
-            transform: 'translateY(24px)',
+            transform: 'translateY(16px)',
           },
           '100%': {
             opacity: '1',
