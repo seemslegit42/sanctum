@@ -52,17 +52,6 @@ const SigilMaterial = () => {
     );
 };
 
-export function BeepSigil(props: { className?: string }) {
-    return (
-        <SigilWrapper {...props}>
-            <mesh>
-                <icosahedronGeometry args={[1, 0]} />
-                <SigilMaterial />
-            </mesh>
-        </SigilWrapper>
-    );
-}
-
 export function MicroAppsSigil(props: { className?: string }) {
     return (
         <SigilWrapper {...props}>

@@ -15,10 +15,6 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LambdaXiVONIcon } from "@/components/icons";
-import dynamic from 'next/dynamic';
-
-const BeepSigil = dynamic(() => import('@/components/AethericSigils').then(mod => mod.BeepSigil), { ssr: false, loading: () => <div className="h-48 w-48" /> });
-
 
 const economicPillars = [
     {
@@ -146,7 +142,7 @@ export default function TreasuryContent() {
         subtitle="An Invitation to the Engine Room of the Post-SaaS Economy."
       >
         <div className="flex justify-center mt-8">
-            <BeepSigil className="h-48 w-48 opacity-50"/>
+            <LambdaXiVONIcon className="h-48 w-48 opacity-50 text-primary" />
         </div>
       </PageHeader>
 
