@@ -1,3 +1,4 @@
+
 "use client"
 import * as React from "react";
 import Link from "next/link";
@@ -16,7 +17,8 @@ import {
   SidebarMenuSubButton,
 } from "@/components/ui/sidebar"
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Book, Code, Shield, Atom, Workflow, BrainCircuit, Rocket, Users, Loader2 } from "lucide-react";
+import { Book, Code, Workflow, BrainCircuit, Rocket, Loader2 } from "lucide-react";
+import { AegisSigilIcon, LoomSigilIcon, MicroAppsSigilIcon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -28,9 +30,9 @@ const docSections = [
     { id: "core-doctrine", title: "The Core Doctrine", icon: <Book/>, subItems: ["Agentic Mythware™", "Sovereignty-as-a-Service™", "The Silence of True Automation", "Ancient Roman Glass Aesthetic"] },
     { id: "nexus-architecture", title: "Nexus Architecture", icon: <Workflow/>, subItems: ["System Overview", "Microservices", "Tech Stack"] },
     { id: "agentic-pantheon", title: "The Agentic Pantheon", icon: <BrainCircuit/>, subItems: ["BEEP's Triune Voice", "Swarm Orchestration", "Tool Registry", "Agent Profiles"] },
-    { id: "loom-of-fates", title: "The Loom of Fates", icon: <Users/>, subItems: ["Loom Studio", "KLEPSYDRA Engine", "ΞCredits", "Folly Instruments", "Obelisk Marketplace"] },
-    { id: "aegis-protocols", title: "The Aegis Protocols", icon: <Shield/>, subItems: ["Threat Detection", "Agent Governance", "Data Integrity", "Zero-Trust Architecture"] },
-    { id: "micro-app-canvas", title: "The Micro-App Canvas", icon: <Atom/>, subItems: ["SDK", "Canvas UX Laws", "Mobile UX Guidelines", "Verdigris Interface Protocol™"] },
+    { id: "loom-of-fates", title: "The Loom of Fates", icon: <LoomSigilIcon/>, subItems: ["Loom Studio", "KLEPSYDRA Engine", "ΞCredits", "Folly Instruments", "Obelisk Marketplace"] },
+    { id: "aegis-protocols", title: "The Aegis Protocols", icon: <AegisSigilIcon/>, subItems: ["Threat Detection", "Agent Governance", "Data Integrity", "Zero-Trust Architecture"] },
+    { id: "micro-app-canvas", title: "The Micro-App Canvas", icon: <MicroAppsSigilIcon/>, subItems: ["SDK", "Canvas UX Laws", "Mobile UX Guidelines", "Verdigris Interface Protocol™"] },
     { id: "operational-scrolls", title: "Operational Scrolls", icon: <Rocket/>, subItems: ["Deployment Runbook", "Monitoring", "Debugging", "Testing"] },
 ];
 
